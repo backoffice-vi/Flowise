@@ -31,7 +31,7 @@ WORKDIR /usr/src/flowise
 COPY . .
 
 # Install dependencies and build (excluding sdk packages not needed for Docker)
-RUN pnpm install && \
+RUN pnpm install --no-frozen-lockfile && \
     pnpm build:docker
 
 # Give the node user ownership of the application files
